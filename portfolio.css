@@ -1,3 +1,4 @@
+font-family: "Raleway", system-ui;
 :root {
     --blue-color: #2196f3;
     --text-color: #212121;
@@ -46,12 +47,12 @@ a:focus {
     color: var(--blue-color);
 }
 
-.navlinks {
+.links {
     margin: 0 0 0 93px;
     display: flex;
 }
 
-.navlinks li {
+.links li {
     margin-right: 50px;
 }
 
@@ -76,7 +77,8 @@ a:focus {
     font-size: 26px;
     color: #000;
 
-    .logoweb {
+    .web {
+        font-family: "Raleway", system-ui;
         color: var(--blue-color);
         font-size: 26px;
     }
@@ -92,11 +94,11 @@ a:focus {
     padding: 94px 0;
 }
 
-.filters {
+.info {
     margin-bottom: 50px;
 }
 
-.filters button {
+.info button {
     height: 38px;
     border: none;
     border-radius: 4px;
@@ -106,10 +108,10 @@ a:focus {
     margin: 0 2px;
 }
 
-.filters button:hover {
+.info button:hover {
     filter: drop-shadow(0px 1px 2px #00000040);
 }
-.filters button:focus {
+.info button:focus {
     color: #fff;
     background-color: var(--blue-color);
     filter: drop-shadow(0px 1px 2px #00000040);
@@ -131,7 +133,7 @@ a:focus {
     width: 130px;
 }
 
-.cards {
+.imagess {
     width: 1170px;
     max-width: 1170px;
     display: flex;
@@ -141,7 +143,7 @@ a:focus {
     gap: 27px;
 }
 
-.portfolio .card {
+.portfolio .images {
     width: 370px;
     height: 404px;
     border: solid 1px #eeeeee;
@@ -152,21 +154,21 @@ a:focus {
     color: var(--light-text);
 }
 
-.card img {
+.images img {
     height: 294px;
 }
 
-.card .title {
+.images .title {
     width: 322px;
     height: 70px;
     padding: 20px 24px;
 }
-.card .title h3 {
+.images .title h3 {
     font-size: 18px;
     font-weight: bold;
     color: var(--text-color);
 }
-.card .title p {
+.images .title p {
     margin: 20px 0;
     font-size: 16px;
     font-weight: 300;
@@ -206,7 +208,7 @@ footer address {
     font-size: 26px;
     color: #fff;
 
-    .logoweb {
+    .web {
         color: var(--blue-color);
         font-size: 26px;
     }

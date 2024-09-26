@@ -6,7 +6,6 @@
 }
 
 * {
-    /* font-family: "Roboto", sans-serif; */
     color: var(--text-color);
     text-decoration: none;
     list-style-type: none;
@@ -245,7 +244,9 @@ footer address {
     color: #fff;
 
     .logoweb {
+        font-family: "Raleway", system-ui;
         color: var(--blue-color);
         font-size: 26px;
     }
 }
+#container div p .info
