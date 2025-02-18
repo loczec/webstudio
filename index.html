@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -50,7 +51,85 @@
             <section class="main-sect1">
                 <div class="flex-container">
                     <h1>Ефективні рішення для вашого бізнесу</h1>
-                    <button>Замовити послугу</button>
+                    <button data-modal-open>Замовити послугу</button>
+
+                    <div class="backdrop is-hidden" data-modal>
+                        <div class="modal">
+                            <button id="modal-close-btn" data-modal-close>
+                                <svg>
+                                    <use
+                                        href="./img/symbol-defs.svg#icon-close"
+                                    ></use>
+                                </svg>
+                            </button>
+
+                            <h2>Залиште свої дані, ми вам передзвонимо</h2>
+
+                            <form action="">
+                                <label>Ім'я</label>
+
+                                <div class="modal-input-box">
+                                    <svg>
+                                        <use
+                                            href="./img/symbol-defs.svg#icon-user"
+                                        ></use>
+                                    </svg>
+                                    <input
+                                        type="text"
+                                        class="modal-input"
+                                        required
+                                    />
+                                </div>
+                                <label>Телефон</label>
+                                <div class="modal-input-box">
+                                    <svg>
+                                        <use
+                                            href="./img/symbol-defs.svg#icon-phone2"
+                                        ></use>
+                                    </svg>
+                                    <input
+                                        type="tel"
+                                        class="modal-input"
+                                        required
+                                    />
+                                </div>
+                                <label>Пошта</label>
+                                <div class="modal-input-box">
+                                    <svg>
+                                        <use
+                                            href="./img/symbol-defs.svg#icon-mail2"
+                                        ></use>
+                                    </svg>
+                                    <input
+                                        type="email"
+                                        class="modal-input"
+                                        required
+                                    />
+                                </div>
+                                <label>Коментар</label>
+                                <textarea
+                                    name=""
+                                    id=""
+                                    placeholder="Введіть текст"
+                                    required
+                                ></textarea>
+
+                                <div class="modal-checkbox">
+                                    <input type="checkbox" required />
+                                    <span
+                                        >Погоджуюся з розсилкою та приймаю
+                                        <a href="">Умови договору</a></span
+                                    >
+                                </div>
+                                <button
+                                    class="modal-send"
+                                    onsubmit="alert('Дякуємо!')"
+                                >
+                                    Відправити
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section class="main-features container">
@@ -89,20 +168,20 @@
                     <div class="img">
                         <div class="wdwd-img">
                             <img src="img/main/img1.png" alt="" />
-                            <span class="wdwd-labl">Десктопні додатки</span>
+                            <span class="wdwd-label">Десктопні додатки</span>
                         </div>
                         <div class="wdwd-img">
                             <img src="img/main/img2.png" alt="" />
-                            <span class="wdwd-labl">Мобільні додатки</span>
+                            <span class="wdwd-label">Мобільні додатки</span>
                         </div>
                         <div class="wdwd-img">
                             <img src="img/main/img3.png" alt="" />
-                            <span class="wdwd-labl">Дизайнерські рішення</span>
+                            <span class="wdwd-label">Дизайнерські рішення</span>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="team">
+            <section class="main-team">
                 <div class="flex-container">
                     <h2>Наша команда</h2>
                     <ul>
@@ -114,7 +193,7 @@
                             />
                             <h5>Ігор Дем'яненко</h5>
                             <p>Product Designer</p>
-                            <div class="team-link">
+                            <div class="team-links">
                                 <div class="team-icon">
                                     <svg>
                                         <use
@@ -153,7 +232,7 @@
                             />
                             <h5>Ольга Рєпіна</h5>
                             <p>Frontend Developer</p>
-                            <div class="team-link">
+                            <div class="team-links">
                                 <div class="team-icon">
                                     <svg>
                                         <use
@@ -192,7 +271,7 @@
                             />
                             <h5>Микола Тарасов</h5>
                             <p>Marketing</p>
-                            <div class="team-link">
+                            <div class="team-links">
                                 <div class="team-icon">
                                     <svg>
                                         <use
@@ -231,7 +310,7 @@
                             />
                             <h5>Михайло Єрмаков</h5>
                             <p>UI Designer</p>
-                            <div class="team-link">
+                            <div class="team-links">
                                 <div class="team-icon">
                                     <svg>
                                         <use
@@ -333,40 +412,62 @@
                         </address>
                     </div>
                     <div class="footer-right">
-                        <h3>ПРИЄДНУЙТЕСЬ</h3>
-                        <div class="footer-icons">
-                            <div class="footer-icon">
-                                <svg>
-                                    <use
-                                        href="./img/symbol-defs.svg#icon-instagram"
-                                    ></use>
-                                </svg>
+                        <div class="footer-sect1">
+                            <h3>ПРИЄДНУЙТЕСЬ</h3>
+                            <div class="footer-icons">
+                                <div class="footer-icon">
+                                    <svg>
+                                        <use
+                                            href="./img/symbol-defs.svg#icon-instagram"
+                                        ></use>
+                                    </svg>
+                                </div>
+                                <div class="footer-icon">
+                                    <svg>
+                                        <use
+                                            href="./img/symbol-defs.svg#icon-twitter"
+                                        ></use>
+                                    </svg>
+                                </div>
+                                <div class="footer-icon">
+                                    <svg>
+                                        <use
+                                            href="./img/symbol-defs.svg#icon-facebook"
+                                        ></use>
+                                    </svg>
+                                </div>
+                                <div class="footer-icon">
+                                    <svg>
+                                        <use
+                                            href="./img/symbol-defs.svg#icon-linkedin"
+                                        ></use>
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="footer-icon">
-                                <svg>
-                                    <use
-                                        href="./img/symbol-defs.svg#icon-twitter"
-                                    ></use>
-                                </svg>
-                            </div>
-                            <div class="footer-icon">
-                                <svg>
-                                    <use
-                                        href="./img/symbol-defs.svg#icon-facebook"
-                                    ></use>
-                                </svg>
-                            </div>
-                            <div class="footer-icon">
-                                <svg>
-                                    <use
-                                        href="./img/symbol-defs.svg#icon-linkedin"
-                                    ></use>
-                                </svg>
-                            </div>
+                        </div>
+                        <div class="footer-form">
+                            <span>Підпишіться на розсилку</span>
+                            <form action="">
+                                <input
+                                    type="email"
+                                    placeholder="Email"
+                                    required
+                                />
+                                <button class="modal-send">
+                                    Підписатися
+                                    <svg>
+                                        <use
+                                            href="/img/symbol-defs.svg#icon-plane"
+                                        ></use>
+                                    </svg>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
+
+        <script src="modal-script.js"></script>
     </body>
 </html>

@@ -9,12 +9,23 @@
 }
 
 * {
-    color: var(--text-color);
-    text-decoration: none;
     list-style-type: none;
     padding: 0;
     margin: 0;
     font-size: 14px;
+    text-decoration: none;
+
+    color: var(--text-color);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 5px;
+    background: var(--blue-color);
+    border-radius: 10px;
 }
 
 .container {
@@ -59,7 +70,7 @@ header {
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    z-index: 1488;
+    z-index: 5;
 }
 
 h1 {
@@ -70,6 +81,183 @@ a:hover,
 a:focus {
     color: var(--blue-color);
 }
+.no-scroll {
+    overflow: hidden;
+}
+
+.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 250ms linear;
+}
+
+.modal {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 528px;
+
+    background: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.modal h2 {
+    margin-top: 40px;
+
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+
+    color: var(--text-color);
+}
+
+#modal-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+
+    background: transparent;
+
+    border-radius: 100px;
+
+    border: 1px solid #00000010;
+
+    margin: 0;
+    padding: 0;
+
+    top: 8px;
+    right: 8px;
+}
+#modal-close-btn svg {
+    fill: #000;
+    width: 11px;
+    height: 11px;
+}
+
+.modal svg {
+    width: 12px;
+    height: 12px;
+}
+
+.modal form {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.modal form label {
+    color: #757575;
+}
+.modal form .modal-checkbox {
+    align-self: center;
+    justify-self: center;
+
+    margin-top: 20px;
+}
+
+.modal form .modal-checkbox span {
+    color: #757575;
+}
+.modal form .modal-checkbox a {
+    color: var(--blue-color);
+    text-decoration: underline;
+}
+
+.modal form .modal-input-box {
+    width: 448px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    padding: 14px 15px;
+
+    border-radius: 4px;
+    border: 1px solid #21212120;
+}
+.modal form .modal-input-box input {
+    border: none;
+    outline: none;
+
+    width: 95%;
+}
+
+.modal form textarea {
+    resize: vertical;
+}
+
+.modal .modal-send {
+    margin-top: 30px;
+
+    width: 200px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    outline: none;
+    border-radius: 4px;
+
+    align-self: center;
+    justify-self: end;
+
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-send:hover {
+    background: #208be4;
+
+    box-shadow: 0px 5px 10px #0000003a;
+}
+
+.modal-send:active {
+    background: #1973bc;
+}
+
+.modal form textarea {
+    width: 448px;
+    height: 120px;
+
+    border-radius: 4px;
+    border: 1px solid #21212120;
+
+    padding: 10px;
+}
 
 .header-nav_nav-links {
     margin: 0 0 0 93px;
@@ -78,6 +266,34 @@ a:focus {
 
 .header-nav_nav-links li {
     margin-right: 50px;
+}
+
+.header-nav_nav-links li a {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-nav_nav-links li a::after {
+    content: "";
+    width: 50%;
+    height: 4px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -32px;
+    background: var(--blue-color);
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    opacity: 0;
+}
+
+.header-nav_nav-links li a:hover::after {
+    width: 100%;
+
+    bottom: -32px;
+
+    opacity: 1;
 }
 
 .header-nav {
@@ -102,6 +318,8 @@ a:focus {
 
     color: var(--light-text);
     fill: var(--light-text);
+
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mail:hover,
@@ -177,16 +395,16 @@ main {
     border: none;
     border-radius: 4px;
     outline: none;
-    transition: all 0s;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     color: #fff;
 }
 
 .main-sect1 button:hover {
-    opacity: 0.9;
+    background: #1d83d5;
 }
 
 .main-sect1 button:active {
-    opacity: 0.8;
+    background: #1973bc;
 }
 
 .main-features {
@@ -249,21 +467,22 @@ main {
     margin: 50px 0;
 }
 
-.main-wdwd .img {
+.main-wdwd .images {
     display: flex;
     align-items: center;
+    /* justify-content: space-between; */
     gap: 30px;
 }
 
-.main-wdwd .img .wdwd-img {
+.main-wdwd .images .wdwd-img {
     position: relative;
 }
 
-.main-wdwd .img .wdwd-img img {
+.main-wdwd .images .wdwd-img img {
     width: 370px;
     height: 294px;
 }
-.main-wdwd .img .wdwd-img .wdwd-labl {
+.main-wdwd .images .wdwd-img .wdwd-label {
     padding: 27px 95px;
     display: flex;
     align-items: center;
@@ -283,7 +502,7 @@ main {
     text-transform: uppercase;
 }
 
-.team {
+.main-team {
     background-color: #f5f4fa;
     padding: 94px 0px;
     display: flex;
@@ -292,11 +511,11 @@ main {
     flex-direction: column;
 }
 
-.team h2 {
+.main-team h2 {
     font-size: 36px;
 }
 
-.team ul {
+.main-team ul {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -305,7 +524,7 @@ main {
     margin: 50px 0px;
 }
 
-.team ul li {
+.main-team ul li {
     width: 270px;
     display: flex;
     flex-direction: column;
@@ -317,27 +536,27 @@ main {
 
     box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
 }
-.team ul li img {
+.main-team ul li img {
     width: 270px;
     height: 260px;
 }
 
-.team ul li h5 {
+.main-team ul li h5 {
     margin: 30px 0 0 0;
     font-size: 16px;
 }
-.team ul li p {
+.main-team ul li p {
     color: var(--light-text);
     margin: 10px 0 30px 0;
 }
 
-.team-link {
+.team-links {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
 }
-.team-link .team-icon {
+.team-links .team-icon {
     padding: 12px;
     width: 44px;
     height: 44px;
@@ -348,14 +567,16 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.team-link .team-icon:hover {
+.team-links .team-icon:hover {
     fill: #fff;
     background: #2196f3;
 }
 
-.team-link .team-icon svg {
+.team-links .team-icon svg {
     width: 20px;
     height: 20px;
     fill: inherit;
@@ -392,6 +613,7 @@ main {
     align-items: center;
     justify-content: center;
     border-radius: 4px;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-brand:hover {
@@ -430,18 +652,27 @@ footer address {
 
 .footer {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     gap: 73px;
 }
 
 .footer-right {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: row;
+
+    gap: 93px;
+}
+
+.footer-right .footer-sect1 {
     display: flex;
 
     justify-content: center;
     flex-direction: column;
     gap: 20px;
 }
-.footer-right h3 {
+.footer-right .footer-sect1 h3 {
     font-size: 14px;
     color: #fff;
 }
@@ -464,6 +695,7 @@ footer address {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-icons .footer-icon:hover {
@@ -475,6 +707,75 @@ footer address {
     width: 20px;
     height: 20px;
     fill: inherit;
+}
+
+.footer-form {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-form form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+}
+
+.footer-form span {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+}
+.footer-form form input {
+    width: 340px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    outline: none;
+    border-radius: 4px;
+
+    padding: 0 16px;
+
+    background: transparent;
+    border: #ffffff4d 1px solid;
+
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 400;
+}
+.footer-form form .modal-send {
+    width: 200px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    gap: 10px;
+
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+
+    background-color: var(--blue-color);
+}
+
+.footer-form form .modal-send svg {
+    fill: #fff;
+    width: 24px;
+    height: 24px;
 }
 
 .footer-logow {
@@ -492,7 +793,7 @@ footer address {
 
 /* ! portfolio page */
 
-.port {
+.portfolio {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -512,6 +813,8 @@ footer address {
     color: var(--text-color);
     font-weight: 500;
     margin: 0 2px;
+
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filters button:hover {
@@ -526,10 +829,10 @@ footer address {
 #all {
     width: 73px;
 }
-#site {
+#web {
     width: 125px;
 }
-#application {
+#addon {
     width: 112px;
 }
 #design {
@@ -556,10 +859,45 @@ footer address {
     justify-content: flex-start;
     flex-direction: column;
     color: var(--light-text);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
     box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform: translate(0%, 101%);
+
+    width: 100%;
+    height: 294px;
+
+    background: #2196f3e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .overlay {
+    transform: translate(0%, 0%);
+}
+
+.overlay p {
+    font-size: 18px;
+    color: #fff;
+    width: 322px;
 }
 
 .card img {
@@ -568,9 +906,13 @@ footer address {
 }
 
 .card .title {
-    width: 322px;
-    height: 70px;
-    padding: 20px 24px 0px 0px;
+    width: 100%;
+    height: 110px;
+    padding: 20px 24px;
+
+    background: #eeeeee;
+
+    z-index: 1;
 }
 .card .title h3 {
     font-size: 18px;
